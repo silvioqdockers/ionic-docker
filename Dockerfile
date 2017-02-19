@@ -28,7 +28,7 @@ ENV  NVM_DIR=$HOME/.nvm \
 
 
 # Cordova ionic, etc
-RUN  /bin/bash -l -c npm install -g cordova ionic gulp bower
+RUN  /bin/bash -l -c "npm install -g cordova ionic gulp bower"
 
 # Android
 RUN curl http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz | tar xz -C /usr/local/
