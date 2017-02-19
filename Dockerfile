@@ -26,6 +26,8 @@ RUN  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.s
 ENV  NVM_DIR=$HOME/.nvm \
      NODE_PATH=$HOME
 
+ENTRYPOINT  ["/bin/bash", "-l", "-c", "$0 $@" ]
+
 # Cordova ionic, etc
 RUN npm install -g cordova ionic gulp bower
 
