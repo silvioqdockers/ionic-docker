@@ -20,7 +20,8 @@ RUN   echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | 
 RUN  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash  \
     && export NVM_DIR="$HOME/.nvm"  \
     && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  \
-    && nvm install 6.9
+    && nvm install 6.9 \
+    && curl https://www.npmjs.org/install.sh -L | /bin/bash -
 
 ENV  NVM_DIR=$HOME/.nvm \
      NODE_PATH=$HOME
