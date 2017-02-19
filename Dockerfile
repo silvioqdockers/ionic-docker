@@ -37,7 +37,7 @@ ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | /usr/local/android-sdk-linux/tools/android update sdk \
     --all --no-ui \
-    --filter platform-tool,build-tools-23.0.3,android-23,addon-google_apis-google-23,extra-android-m2repository,extra-google-google_play_services,extra-google-m2repository
+    --filter platform-tool,build-tools-25.0.2,android-25,addon-google_apis-google-24,extra-android-m2repository,extra-google-google_play_services,extra-google-m2repository
 RUN find /usr/local/android-sdk-linux -perm 0744 | xargs chmod 755
 
 # extra-android-support
