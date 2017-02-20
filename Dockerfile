@@ -24,13 +24,14 @@ RUN  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.s
     && curl https://www.npmjs.org/install.sh -L | /bin/bash -
 
 ENV  NVM_DIR=$HOME/.nvm \
-     NODE_PATH=$HOME
+     NODE_PATH=$HOME  \
 
 
 # Cordova ionic, etc
 RUN  /bin/bash -l -c "npm install -g cordova ionic gulp bower"
 
 # Android
+# extra-android-support
 ENV ANDROID_HOME=/usr/local/android-sdk-linux  \
     PATH="${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools"
 
@@ -40,12 +41,12 @@ RUN curl http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz | tar xz -C 
     --filter platform-tools,build-tools-25.0.2,android-25,android-24,addon-google_apis-google-24,extra-android-m2repository,extra-google-google_play_services,extra-google-m2repository  \
    && find /usr/local/android-sdk-linux -perm 0744 | xargs chmod 755
 
-# extra-android-support
 
 
+ADD  android-sdk.sh  /etc/profile.d/
 
-# Workdir
-RUN mkdir /src
+# seteos finales.
+RUN   mkdir /src 
 WORKDIR /src
 ENTRYPOINT  ["/bin/bash", "-l", "-c", "$0 $@" ]
 
