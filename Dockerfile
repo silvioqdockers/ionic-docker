@@ -32,7 +32,7 @@ RUN  /bin/bash -l -c "npm install -g cordova ionic gulp bower"
 
 # Android
 ENV ANDROID_HOME=/usr/local/android-sdk-linux  \
-    PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+    PATH="${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools"
 
 RUN curl http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz | tar xz -C /usr/local/  \
    && ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | /usr/local/android-sdk-linux/tools/android update sdk \
