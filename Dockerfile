@@ -37,7 +37,7 @@ ENV ANDROID_HOME=/usr/local/android-sdk-linux  \
 RUN curl http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz | tar xz -C /usr/local/  \
    && ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | /usr/local/android-sdk-linux/tools/android update sdk \
     --all --no-ui \
-    --filter platform-tool,build-tools-25.0.2,android-25,android-24,addon-google_apis-google-24,extra-android-m2repository,extra-google-google_play_services,extra-google-m2repository  \
+    --filter platform-tools,build-tools-25.0.2,android-25,android-24,addon-google_apis-google-24,extra-android-m2repository,extra-google-google_play_services,extra-google-m2repository  \
    && find /usr/local/android-sdk-linux -perm 0744 | xargs chmod 755
 
 # extra-android-support
