@@ -31,14 +31,14 @@ ENV  NVM_DIR=$HOME/.nvm \
 RUN  /bin/bash -l -c "npm install -g cordova ionic gulp bower"
 
 # Android
-RUN curl http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz | tar xz -C /usr/local/
-ENV ANDROID_HOME /usr/local/android-sdk-linux
-ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+ENV ANDROID_HOME=/usr/local/android-sdk-linux  \
+    PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
-RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | /usr/local/android-sdk-linux/tools/android update sdk \
+RUN curl http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz | tar xz -C /usr/local/  \
+   && ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | /usr/local/android-sdk-linux/tools/android update sdk \
     --all --no-ui \
-    --filter platform-tool,build-tools-25.0.2,android-25,addon-google_apis-google-24,extra-android-m2repository,extra-google-google_play_services,extra-google-m2repository
-RUN find /usr/local/android-sdk-linux -perm 0744 | xargs chmod 755
+    --filter platform-tool,build-tools-25.0.2,android-25,addon-google_apis-google-24,extra-android-m2repository,extra-google-google_play_services,extra-google-m2repository  \
+   && find /usr/local/android-sdk-linux -perm 0744 | xargs chmod 755
 
 # extra-android-support
 
