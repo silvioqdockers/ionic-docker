@@ -24,7 +24,7 @@ RUN  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.s
     && curl https://www.npmjs.org/install.sh -L | /bin/bash -
 
 ENV  NVM_DIR=$HOME/.nvm \
-     NODE_PATH=$HOME  \
+     NODE_PATH=$HOME 
 
 
 # Cordova ionic, etc
