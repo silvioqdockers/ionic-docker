@@ -28,7 +28,7 @@ ENV  NVM_DIR=$HOME/.nvm \
 
 
 # Cordova ionic, etc
-RUN  /bin/bash -l -c "npm install -g cordova ionic gulp bower"
+RUN  /bin/bash -l -c "npm install -g cordova ionic gulp bower && cordova telemetry off && cordova -v"
 
 # Android
 # extra-android-support
