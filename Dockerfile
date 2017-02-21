@@ -50,10 +50,10 @@ RUN   mkdir /src
 WORKDIR /src
 
 # instalación del gradle
-RUN   /bin/bash -l -c "echo n |  ionic start ./dummy  tabs" \
-    && /bin/bash -l -c "cd dummy" \
-    && /bin/bash -l -c "ionic platform add android && ionic build android" \
-    && /bin/bash -l -c "cd .. && rm -fr dummy"
+RUN   /bin/bash -l -c "echo n |  ionic start ./dummy  blank  \
+    && cd dummy \
+    && ionic platform add android && ionic build android \
+    && cd .. && rm -fr dummy"
 
 ENTRYPOINT  ["/bin/bash", "-l", "-c", "$0 $@" ]
 
