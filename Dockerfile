@@ -48,6 +48,13 @@ ADD  android-sdk.sh  /etc/profile.d/
 # seteos finales.
 RUN   mkdir /src 
 WORKDIR /src
+
+# instalación del gradle
+RUN   /bin/bash -l -c "echo n |  ionic start ./dummy  tabs" \
+    && /bin/bash -l -c "cd dummy" \
+    && /bin/bash -l -c "ionic platform add android && ionic build android" \
+    && /bin/bash -l -c "cd .. && rm -fr dummy"
+
 ENTRYPOINT  ["/bin/bash", "-l", "-c", "$0 $@" ]
 
 # Expongo para ionic
